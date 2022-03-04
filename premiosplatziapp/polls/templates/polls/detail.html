@@ -1,0 +1,74 @@
+
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ question.question_text }}</h1></legend>
+        {% if error_message %}
+            {% comment %} <div class="alert alert-danger">{{ error_message }}</div> {% endcomment %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        {% for choice in question.choice_set.all  %}
+            <div>
+                <input
+                    type="radio"
+                    name="choice"
+                    id="choice{{ forloop.counter }}"
+                    value={{ choice.id }}
+                    {% comment %} {% if choice.id == selected_choice %}
+                        checked
+                    {% endif %} {% endcomment %}
+                    {% comment %} required {% endcomment %}
+                >
+                <label for="choice{{ forloop.counter }}">
+                    {{ choice.id }}
+                    {{ choice.choice_text }}
+                </label>
+            </div>
+            <br>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value"Votar">
+</form>
+
+{% comment %} # Forma 1
+<h3> {{ context.question }}</h3>
+
+<ul>
+    {% for choice in context.question.choice_set.all %}
+        {% if choice.choice_text %}
+            <li>{{ choice.choice_text }}</li>
+        {% endif %}
+    {% endfor %}
+</ul> {% endcomment %}
+
+{% comment %} 
+# -----------------------
+# Form 2, como yo lo hice
+{% if context.choice %}
+    <ul>
+        {% for choice in context.choice %}
+            {% if choice.choice_text %}
+                <li>{{ choice.choice_text }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No choice are available.</p>
+{% endif %} {% endcomment %}
+
+
+{% comment %}
+# -----------------
+# Forma 3,Como lo hizo el que elevó el erro con Try Except Return
+<h3> {{ question }}</h3>
+
+<ul>
+    {% for choice in question.choice_set.all %}
+        {% if choice.choice_text %}
+            <li>{{ choice.choice_text }}</li>
+        {% endif %}
+    {% endfor %}
+</ul> {% endcomment %}
+
+{% comment %} <a href="{{ context.url_index }}"> <-- </a> {% endcomment %}

@@ -82,7 +82,7 @@ Temporary Items
 
 # Portable Document Format
 *.pdf
-#*.txt
+*.txt
 *.xlsx
 *.xls
 *.ods
