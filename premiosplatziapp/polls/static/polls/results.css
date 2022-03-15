@@ -1,0 +1,62 @@
+/* body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 50px;
+    padding-top: 100px;
+
+    height: 60px;
+    font-size: 62px;   
+    color: #71632d;
+}
+
+main a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    font-size: 20px;
+} */
+
+
+/* Aporte otro estudiante */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    background: linear-gradient(
+        to right,
+        hsl(98, 100%, 62%),
+        hsl(204, 100%,  59%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+a{
+    background: linear-gradient(
+        to right,
+        hsl(98, 100%, 62%),
+        hsl(204, 100%,  59%)
+    );
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 19.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 2;
+    -webkit-text-fill-color: black;
+    /* border-radius: 10px; */
+}
